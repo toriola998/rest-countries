@@ -16,36 +16,40 @@
             <p>Dark mode</p>
         </section>
 
-        <form>
-            <div class="flex">
-                <input type="text" placeholder="Search for a country" id="input-country"/>
-            </div>
-
-            <select id="region" name="region">
-                <option value="" disabled selected hidden>Filter by region</option>
-                <option value="volvo">Africa</option>
-                <option value="saab">America</option>
-                <option value="fiat">Asia</option>
-                <option value="audi">Europe</option>
-                <option value="audi">Oceania</option>
-            </select>
-        </form>
-
-        <main>
-            <div class="wrapper">
-                <!--<div class="flex container">
-                    <div class="box"> 
-                        <img src="">
-                        <div class="details">  
-                            <h3>Germany</h3>
-                            <p class="population"><span>Population:</span> 45,60900 </p>
-                            <p class="region"><span>Region:</span> Europe</p>
-                            <p class="capital"><span>Capital:</span> Oklahoma</p>
-                        </div>
+        <section class="home">
+            <div>
+                <form>
+                    <div class="flex">
+                        <input type="text" placeholder="Search for a country" id="input-country"/>
                     </div>
-                </div>-->
-            </div>     
-        </main>
+
+                    <select id="region" name="region">
+                        <option value="" disabled selected hidden>Filter by region</option>
+                        <option value="Africa">Africa</option>
+                        <option value="America">America</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </form>
+
+                <main>
+                    <div class="wrapper">
+                        <!--<div class="flex container">
+                            <div class="box"> 
+                                <img src="">
+                                <div class="details">  
+                                    <h3>Germany</h3>
+                                    <p class="population"><span>Population:</span> 45,60900 </p>
+                                    <p class="region"><span>Region:</span> Europe</p>
+                                    <p class="capital"><span>Capital:</span> Oklahoma</p>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>     
+                </main>
+            </div>
+        </section>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="index.js"></script>
     </body>

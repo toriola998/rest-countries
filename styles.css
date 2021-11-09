@@ -15,6 +15,11 @@ body {
     font-family: 'Nunito Sans', sans-serif;
 }
 
+.home{
+    display: flex;
+    justify-content: center;
+}
+
 .flex {
     display: flex;
 }
@@ -42,16 +47,16 @@ input, select {
 
 input[type=text] {
     width: 90vw;
-    padding-left: 1rem;
+    padding-left: 2rem;
 }
 
 select {
     width: 50vw;
-    margin-left: 1.3rem;
+    padding: 0 1rem;
 }
 
 .box {
-    width: 70vw;
+    width: 250px;
     min-height: 320px;
     background-color: hsl(0, 0%, 100%);
     border-radius: 7px;
@@ -95,40 +100,45 @@ img {
     grid-gap: 25px;
    }
 
-   .box {
-       width: 40vw;
-   }
+   form{
+    display: flex;
+    margin: 2rem 0 0 0;
+    justify-content: space-between;
+    width: auto;
+    }
+
+    form > div {
+        margin: unset;
+    }
+
+    input[type=text] {
+        width: 15rem;
+    }
+
+    select {
+        width: 10rem;
+    }
+    
   }
 
-  @media screen and (min-width: 780px) {
+  @media screen and (min-width: 900px) {
     .wrapper{
         grid-template-columns: auto auto auto;
     }
 
-    .box {
-        width: 30vw;
+    input[type=text] {
+        width: 25rem;
     }
+
+    select {
+        width: 18rem;
+    }
+
   }
 
-  @media screen and (min-width: 990px) {
+  @media screen and (min-width: 1200px) {
     .wrapper{
         grid-template-columns: auto auto auto auto;
     }
-
-    .box {
-        width: 20vw;
-    }
-
-  }
-
-  @media screen and (min-width: 1500px) {
-    .wrapper{
-        grid-template-columns: auto auto auto auto auto;
-    }
-
-    .box {
-        width: 15vw;
-    }
-
   }
 
