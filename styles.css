@@ -67,7 +67,8 @@ img {
     margin-bottom: 1rem;
 }
 
-.container {
+.wrapper  {
+    display: grid;
     justify-content: center;
 }
 
@@ -87,3 +88,47 @@ img {
     font-weight: 600;
     margin-right: 0.3rem;
 }
+
+@media screen and (min-width: 570px) {
+   .wrapper{
+    grid-template-columns: auto auto;
+    grid-gap: 25px;
+   }
+
+   .box {
+       width: 40vw;
+   }
+  }
+
+  @media screen and (min-width: 780px) {
+    .wrapper{
+        grid-template-columns: auto auto auto;
+    }
+
+    .box {
+        width: 30vw;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .wrapper{
+        grid-template-columns: auto auto auto auto;
+    }
+
+    .box {
+        width: 20vw;
+    }
+
+  }
+
+  @media screen and (min-width: 1500px) {
+    .wrapper{
+        grid-template-columns: auto auto auto auto auto;
+    }
+
+    .box {
+        width: 15vw;
+    }
+
+  }
+
