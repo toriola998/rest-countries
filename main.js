@@ -1,5 +1,6 @@
 const wrapper = document.querySelector('.wrapper')
 const searchCountry = document.querySelector('#input-country')
+const continent = document.querySelector('#region')
 //let html = "";
 //let results = ""
 
@@ -25,7 +26,7 @@ function renderCountries (data) {
                <div class="details">  
                    <h3 class="country-name">${country.name}</h3>
                    <p><span>Population:</span>${country.population}</p>
-                   <p><span>Region:</span>${country.region}</p>
+                   <p><span>Region:</span><span class="country-region">${country.region}<span></p>
                    <p><span>Capital:</span>${country.capital}</p>
                </div>
            </div>
@@ -33,13 +34,11 @@ function renderCountries (data) {
     }) 
 }
 
-
-function searchCountries(){
+function searchCountryByName(){
     searchCountry.addEventListener('input', () => {
         const countryName = [...document.querySelectorAll('.country-name')]
         let inputValue = searchCountry.value;
         countryName.forEach( (count) => {
-
             console.log(count.parentElement.parentElement)
              if(count.textContent.toLowerCase().includes(inputValue.toLowerCase())) {
                 count.parentElement.parentElement.style.display = 'block';
@@ -49,5 +48,20 @@ function searchCountries(){
         })
     })
 } 
-   
-searchCountries();
+searchCountryByName();
+
+function searchCountryByContinent (){
+    continent.addEventListener('change', () => {
+        const countryRegion = [...document.querySelectorAll('.country-region')]
+        let inputValue = region.value;
+        countryRegion.forEach( (countReg) => {
+            //console.log(count.parentElement.parentElement)
+            if(countReg.textContent.toLowerCase().includes(inputValue.toLowerCase())) {
+                countReg.parentElement.parentElement.parentElement.style.display = 'block';
+             } else {
+                countReg.parentElement.parentElement.parentElement.style.display = 'none';
+             }
+        })
+    })
+}
+searchCountryByContinent();
