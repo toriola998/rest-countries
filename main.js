@@ -1,6 +1,7 @@
 const wrapper = document.querySelector('.wrapper')
 const searchCountry = document.querySelector('#input-country')
 const continent = document.querySelector('#region')
+const detailedPage = document.querySelector('.detailed-page')
 //let html = "";
 //let results = ""
 
@@ -30,8 +31,32 @@ function renderCountries (data) {
                    <p><span>Capital:</span>${country.capital}</p>
                </div>
            </div>
-        </div>`      
+        </div>` 
+
+        const allCountries = [...wrapper.children];  
+        allCountries.forEach( (countryy) => {
+            countryy.addEventListener('click', () => {
+                detailedPage.style.display = 'block';
+                wrapper.style.display = 'none'
+                renderDetails(country);
+            });
+        })     
     }) 
+}
+
+function renderDetails (detail) {
+    detailedPage.innerHTML = `
+    <div class="">
+            <div class="box"> 
+              
+               <div class="details">  
+                   <h3 class="country-name">${detail.numericCode}</h3>
+                   <p><span>Population:</span>${detail.population}</p>
+                   <p><span>Region:</span><span class="country-region">${detail.region}<span></p>
+                   <p><span>Capital:</span>${detail.capital}</p>
+               </div>
+           </div>
+        </div>` 
 }
 
 function searchCountryByName(){
