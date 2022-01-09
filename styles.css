@@ -99,14 +99,23 @@ p span {
 }
 
 .detailed-page {
-    top: 0;
+    top: 6rem;
     bottom: 0;
     right: 0;
     left: 0;
     position: fixed;
-    display: none;
+    display: block;
     z-index: 9999;
-    background-color: #fff;
+    background-color: hsl(0, 0%, 98%);
+}
+
+.container {
+    padding: 0 2rem;
+}
+
+.container > div {
+    width: 300px;
+    margin: auto;
 }
 
 @media screen and (min-width: 570px) {
@@ -169,8 +178,8 @@ p span {
 }
 
 @media screen and (min-width: 1400px) {
-    main ,
-    header>div{
+    main,
+    header > div{
         max-width: 1320px;
         margin: auto;
     }

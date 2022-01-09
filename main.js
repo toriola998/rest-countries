@@ -18,17 +18,17 @@ function showCountry(data) {
     const country = document.createElement('div');
     country.innerHTML = `
     <div class="box">
-    <div class="country-img">
-        <img class="country-flag" src="${data.flag}"/>
-    </div>
+        <div class="country-img">
+            <img class="country-flag" src="${data.flag}"/>
+        </div>
 
-    <div class="country-info">
-        <h3 class="country-name">${data.name}</h3>
-        <p><span>Population:</span>${data.population}</p>
-        <p class="country-region"><span>Region:</span>${data.region}</p>
-        <p><span>Capital:</span>${data.capital}</p>
+        <div class="country-info">
+            <h3 class="country-name">${data.name}</h3>
+            <p><span>Population:</span>${data.population}</p>
+            <p class="country-region"><span>Region:</span>${data.region}</p>
+            <p><span>Capital:</span>${data.capital}</p>
+        </div>
     </div>
-</div>
    `
     wrapper.appendChild(country)
 
@@ -73,7 +73,7 @@ function searchCountryByContinent (){
 searchCountryByContinent();
 
 function showCountryDetails (data) {
-    detailedPage.style.display = 'block';
+    detailedPage.style.display = 'block'; 
     detailedPage.innerHTML =  `
     <div class="">
     <div class="box"> 
