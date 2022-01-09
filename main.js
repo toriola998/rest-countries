@@ -2,61 +2,40 @@ const wrapper = document.querySelector('.wrapper')
 const searchCountry = document.querySelector('#input-country')
 const continent = document.querySelector('#region')
 const detailedPage = document.querySelector('.detailed-page')
-//let html = "";
-//let results = ""
 
-fetchCountries();
-
-function fetchCountries () {
-    fetch('https://restcountries.com/v2/all')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data)
-        renderCountries(data);
-    })
+async function getCountries() {
+    const url = await fetch('https://restcountries.com/v2/all');
+    const res = await url.json()
+    console.log(res)
+    res.forEach(count => {
+        showCountry(count)
+    });
 }
 
-function renderCountries (data) {
-    data.forEach( (country) => {
-       wrapper.innerHTML += `
-        <div class="container">
-            <div class="box"> 
-               <img src="${country.flags.svg}">
-               <div class="details">  
-                   <h3 class="country-name">${country.name}</h3>
-                   <p><span>Population:</span>${country.population}</p>
-                   <p><span>Region:</span><span class="country-region">${country.region}<span></p>
-                   <p><span>Capital:</span>${country.capital}</p>
-               </div>
-           </div>
-        </div>` 
+getCountries();
 
-        const allCountries = [...wrapper.children];  
-        allCountries.forEach( (countryy) => {
-            countryy.addEventListener('click', () => {
-                detailedPage.style.display = 'block';
-                wrapper.style.display = 'none'
-                renderDetails(country);
-            });
-        })     
-    }) 
-}
+function showCountry(data) {
+    const country = document.createElement('div');
+    country.innerHTML = `
+    <div>
+        <div class="country-img">
+        <img class="country-flag" src="${data.flag}"/>
+        </div>
 
-function renderDetails (detail) {
-    detailedPage.innerHTML = `
-    <div class="">
-            <div class="box"> 
-              
-               <div class="details">  
-                   <h3 class="country-name">${detail.numericCode}</h3>
-                   <p><span>Population:</span>${detail.population}</p>
-                   <p><span>Region:</span><span class="country-region">${detail.region}<span></p>
-                   <p><span>Capital:</span>${detail.capital}</p>
-               </div>
-           </div>
-        </div>` 
+        <div class="country-info">
+            <h5 class="country-name">${data.name}</h5>
+            <p><strong>${data.population}:</strong></p>
+            <p class="country-region">${data.region}:</p>
+            <p><strong>${data.capital}</strong></p>
+        </div>
+    </div>
+   `
+    wrapper.appendChild(country)
+
+    //for each of the inner page to show
+    country.addEventListener('click', () => {
+       showCountryDetails(data)
+    })
 }
 
 function searchCountryByName(){
@@ -73,6 +52,7 @@ function searchCountryByName(){
         })
     })
 } 
+
 searchCountryByName();
 
 function searchCountryByContinent (){
@@ -89,4 +69,23 @@ function searchCountryByContinent (){
         })
     })
 }
+
 searchCountryByContinent();
+
+function showCountryDetails (data) {
+    detailedPage.style.display = 'block';
+    detailedPage.innerHTML =  `
+    <div class="">
+    <div class="box"> 
+    <div class="country-img">
+    <img class="country-flag" src="${data.flag}"/>
+ </div>
+       <div class="details">  
+           <h3 class="country-name">${data.numericCode}</h3>
+           <p><span>Population:</span>${data.population}</p>
+           <p><span>Region:</span><span class="country-region">${data.region}<span></p>
+           <p><span>Capital:</span>${data.capital}</p>
+       </div>
+   </div>
+</div>`
+}
