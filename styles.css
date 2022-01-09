@@ -2,6 +2,7 @@
 
 :root {
     --box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    --lightGrey: hsl(0, 0%, 98%);
 }
 
 .active {
@@ -19,20 +20,23 @@ body {
     font-family: 'Nunito Sans', sans-serif;
 }
 
-.home{
-    display: flex;
-    justify-content: center;
-}
-
 .flex {
     display: flex;
 }
 
-.heading {
+header {
     height: 5rem;
+    box-shadow: var(--box-shadow);
+}
+
+header > div {
+    height: inherit;
     justify-content: space-around;
     align-items: center;
-    box-shadow: var(--box-shadow);
+}
+
+form {
+    padding: 0 2rem;
 }
 
 form > div {
@@ -62,38 +66,34 @@ select {
 .box {
     width: 250px;
     min-height: 320px;
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--lightGrey);
     border-radius: 7px;
-    margin: 3rem 0;
+    margin: 3rem auto;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 img {
-    height: 150px; 
+    height: 160px; 
     width: 100%;
-    border-radius: inherit;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     object-fit: cover;
     margin-bottom: 1rem;
 }
 
-.wrapper  {
-    display: grid;
-    justify-content: center;
-}
-
-.details {
+.country-info {
     margin-left: 1.5rem;
 }
 
-.details h3 {
+h3 {
     margin-bottom: 1rem;
 }
 
-.details p {
+p {
     font-size: 14px;
 }
 
-.details p span {
+p span {
     font-weight: 600;
     margin-right: 0.3rem;
 }
@@ -110,16 +110,23 @@ img {
 }
 
 @media screen and (min-width: 570px) {
+    .home {
+        padding: 0 2rem;
+    }
+
    .wrapper{
-    grid-template-columns: auto auto;
-    grid-gap: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+    justify-content: center;
    }
 
    form{
     display: flex;
     margin: 2rem 0 0 0;
-    justify-content: space-between;
+    justify-content: space-around;
     width: auto;
+    padding: unset;
     }
 
     form > div {
@@ -133,14 +140,13 @@ img {
     select {
         width: 10rem;
     }
-    
-  }
 
-  @media screen and (min-width: 900px) {
-    .wrapper{
-        grid-template-columns: auto auto auto;
-    }
+    .box {
+        margin: 0 1rem 3rem 1rem;
+    } 
+}
 
+@media screen and (min-width: 900px) {
     input[type=text] {
         width: 25rem;
     }
@@ -149,11 +155,23 @@ img {
         width: 18rem;
     }
 
-  }
-
-  @media screen and (min-width: 1200px) {
-    .wrapper{
-        grid-template-columns: auto auto auto auto;
+    header > div {
+        justify-content: space-between;
+        padding: 0 7rem;
     }
-  }
+}
 
+@media screen and (min-width: 1200px) {
+    form {
+        padding: 0 5rem;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    main ,
+    header>div{
+        max-width: 1320px;
+        margin: auto;
+    }
+}
