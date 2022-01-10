@@ -2,6 +2,7 @@ const wrapper = document.querySelector('.wrapper')
 const searchCountry = document.querySelector('#input-country')
 const continent = document.querySelector('#region')
 const detailedPage = document.querySelector('.detailed-page')
+const backBtn = document.querySelector('.back-btn-wrap')
 
 async function getCountries() {
     const url = await fetch('https://restcountries.com/v2/all');
@@ -89,3 +90,7 @@ function showCountryDetails (data) {
    </div>
 </div>`
 }
+
+backBtn.addEventListener('click', () => {
+    detailedPage.style.display = 'none'
+})

@@ -3,6 +3,7 @@
 :root {
     --box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     --lightGrey: hsl(0, 0%, 98%);
+    --allRound-box-shadow : rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .active {
@@ -72,7 +73,7 @@ select {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-img {
+.country-flag {
     height: 160px; 
     width: 100%;
     border-top-left-radius: 7px;
@@ -85,8 +86,9 @@ img {
     margin-left: 1.5rem;
 }
 
-h3 {
-    margin-bottom: 1rem;
+.country-name {
+    margin: 1rem 0 2rem;
+    font-size: 1.4rem;
 }
 
 p {
@@ -103,19 +105,71 @@ p span {
     bottom: 0;
     right: 0;
     left: 0;
-    position: fixed;
+    position: absolute;
     display: block;
     z-index: 9999;
     background-color: hsl(0, 0%, 98%);
 }
 
-.container {
+.detailed-page > div {
     padding: 0 2rem;
 }
 
 .container > div {
-    width: 300px;
+    /*width: 300px;*/
     margin: auto;
+}
+
+.back-btn-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: var(--allRound-box-shadow);
+    height: 3rem;
+    width: 6.2rem;
+    margin-top: 2rem;
+}
+
+.detailed-page button{
+    background-color: inherit;
+    outline: none;
+    border: none;
+    font-size: 17px;  
+}
+
+.back-btn-img {
+    height: auto;
+    width: 1.5rem;
+}
+
+.container{
+    padding: 6rem 0 7rem;
+}
+
+.container img{
+    height: 300px;
+    width: 300px;
+}
+
+.container p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.div2 {
+    margin: 2.2rem 0;
+}
+
+.border {
+    font-weight: 600;
+    font-size: 1.2rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.border-btn button {
+    box-shadow: var(--allRound-box-shadow);
+    padding: 0.8rem 1.5rem; 
+    margin: 0 1.5rem 1.5rem 0;
 }
 
 @media screen and (min-width: 570px) {
