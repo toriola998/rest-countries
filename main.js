@@ -2,7 +2,7 @@ const wrapper = document.querySelector('.wrapper')
 const searchCountry = document.querySelector('#input-country')
 const continent = document.querySelector('#region')
 const detailedPage = document.querySelector('.detailed-page')
-const backBtn = document.querySelector('.back-btn-wrap')
+const backBtn = document.querySelector('.back-btn-wrap');
 
 async function getCountries() {
     const url = await fetch('https://restcountries.com/v2/all');
@@ -35,7 +35,11 @@ function showCountry(data) {
 
     //for each of the inner page to show
     country.addEventListener('click', () => {
-       showCountryDetails(data)
+       showCountryDetails(data);
+       wrapper.style.display = 'none'
+       backBtn.addEventListener('click', () => {
+        detailedPage.style.display = 'none'
+    })
     })
 }
 
@@ -76,21 +80,43 @@ searchCountryByContinent();
 function showCountryDetails (data) {
     detailedPage.style.display = 'block'; 
     detailedPage.innerHTML =  `
-    <div class="">
-    <div class="box"> 
-    <div class="country-img">
-    <img class="country-flag" src="${data.flag}"/>
- </div>
-       <div class="details">  
-           <h3 class="country-name">${data.numericCode}</h3>
-           <p><span>Population:</span>${data.population}</p>
-           <p><span>Region:</span><span class="country-region">${data.region}<span></p>
-           <p><span>Capital:</span>${data.capital}</p>
-       </div>
-   </div>
+    <div>
+    <div class="container"> 
+        <div>
+            <div>
+                <div class="back-btn-wrap">
+                    <img src="./assets/back-btn.svg" alt="go-back-arrow" class="back-btn-img"/>
+                    <button class="back-btn">Back</button>
+                </div>
+                <img src="${data.flag}" alt="country-flag" class="flag-img"/>
+            </div>
+            <div class="country-information"> 
+                <div>
+                    <h3 class="country-name"><span>Native name:</span> ${data.name}</h3>
+                    <div class="flex-tab">
+                        <div class=""> 
+                            <p><span>Population:</span>${data.population}</p>
+                            <p><span>Region:</span>${data.region}<span></p>
+                            <p><span>Sub-Region:</span>${data.subregion}</p>
+                            <p><span>Capital:</span>${data.capital}</p>
+                        </div>
+
+                        <div class="div2">
+                            <p><span>Top Level Domain:</span>${data.topLevelDomain}</p>
+                            <p><span>Currencies:</span>${data.currencies.map(currency => currency.name)}</p>
+                            <p><span>Languages:</span>${data.languages.map(lang => lang.name).join(', ')} </> 
+                        </div>
+                    </div>
+                    
+                    <div class="border-country">
+                        <p class="border">Border countries</p>
+                        <div class="border-btn">
+                            <ul> ${data.borders.map(border => `<button>${border}</button>`).join("")} </ul> 
+                        </div> 
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
 </div>`
 }
-
-backBtn.addEventListener('click', () => {
-    detailedPage.style.display = 'none'
-})

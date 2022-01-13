@@ -106,7 +106,7 @@ p span {
     right: 0;
     left: 0;
     position: absolute;
-    display: block;
+    display: none;
     z-index: 9999;
     background-color: hsl(0, 0%, 98%);
 }
@@ -126,7 +126,7 @@ p span {
     box-shadow: var(--allRound-box-shadow);
     height: 3rem;
     width: 6.2rem;
-    margin: 2rem 0 8rem;
+    margin: 2rem 0 3rem;
 }
 
 .detailed-page button{
@@ -146,10 +146,8 @@ p span {
 }
 
 .flag-img{
-    height: 300px;
+    height: 400px;
     width: 100%;
-    display: block;
-    margin: auto;
 }
 
 .container p {
@@ -226,6 +224,11 @@ p span {
         height: 300px;
         margin-bottom: 4rem;
     }
+
+    .back-btn-wrap {
+        margin: 2rem 0 8rem;
+    }
+    
 
     .flex-tab {
         display: flex;
