@@ -126,7 +126,7 @@ p span {
     box-shadow: var(--allRound-box-shadow);
     height: 3rem;
     width: 6.2rem;
-    margin-top: 2rem;
+    margin: 2rem 0 8rem;
 }
 
 .detailed-page button{
@@ -142,12 +142,14 @@ p span {
 }
 
 .container{
-    padding: 6rem 0 7rem;
+    display: flex;
 }
 
-.container img{
+.flag-img{
     height: 300px;
-    width: 300px;
+    width: 100%;
+    display: block;
+    margin: auto;
 }
 
 .container p {
@@ -180,7 +182,7 @@ p span {
         display: flex;
     }
 
-    .container img {
+    .flag-img {
         width: 450px;
         height: 300px;
         margin-bottom: 4rem;
@@ -219,7 +221,7 @@ p span {
 }
 
 @media screen and (min-width: 760px) {
-    .container img {
+    .flag-img {
         width: 500px;
         height: 300px;
         margin-bottom: 4rem;
@@ -253,7 +255,7 @@ p span {
         justify-content: space-evenly;
      }
  
-     .container img {
+     .flag-img {
          margin-right: 4rem;
          width: 450px;
          height: 350px;
@@ -264,7 +266,10 @@ p span {
         align-items: center;
     }
 
- 
+    .country-information{
+        margin-top: 10rem;
+    }
+
     input[type=text] {
         width: 25rem;
     }
