@@ -116,9 +116,7 @@ p span {
 }
 
 .container > div {
-    /*width: 300px;*/
     margin: auto;
-
 }
 
 .back-btn-wrap {
@@ -221,7 +219,6 @@ p span {
 }
 
 @media screen and (min-width: 760px) {
-
     .container img {
         width: 500px;
         height: 300px;
@@ -236,7 +233,7 @@ p span {
 
     .div2 {
         margin: unset;
-        margin-top: 1.5rem;
+        margin-left: 4rem;
     }
 
     .border-country {
@@ -250,7 +247,6 @@ p span {
 }
 
 @media screen and (min-width: 900px) {
-
     .container > div {
         display: flex;  
         align-items: center;
